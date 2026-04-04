@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kottaram Tech Solution | Sharjah, UAE</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050b18;
+    --surface: #0d1a2e;
+    --surface2: #102240;
+    --accent: #00d4ff;
+    --accent2: #0077b6;
+    --gold: #f0a500;
+    --text: #e8f0fe;
+    --muted: #7a9bbf;
+    --white: #ffffff;
+    --gradient: linear-gradient(135deg, #00d4ff 0%, #0077b6 50%, #005fa3 100%);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, nav, .logo {
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* ───── NAV ───── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 6%;
+    background: rgba(5,11,24,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(0,212,255,0.1);
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--accent); }
+
+  nav ul {
+    display: flex;
+    gap: 2.2rem;
+    list-style: none;
+  }
+
+  nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--gradient);
+    color: var(--white) !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.85; color: var(--white) !important; }
+
+  /* ───── HERO ───── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 6% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,119,182,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,212,255,0.08) 0%, transparent 60%);
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.25);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  h1 .accent { color: var(--accent); }
+
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gradient);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(0,119,182,0.4);
+    font-family: 'Syne', sans-serif;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,119,182,0.55);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat-item { text-align: left; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-visual {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 420px;
+    animation: fadeUp 0.8s 0.3s ease both;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tech-circle {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,212,255,0.15);
+    position: relative;
+    animation: spin 25s linear infinite;
+  }
+
+  .tech-circle::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0,212,255,0.1);
+  }
+
+  .tech-circle-inner {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,119,182,0.3) 0%, rgba(0,212,255,0.05) 100%);
+    border: 1px solid rgba(0,212,255,0.2);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: spin 25s linear reverse infinite;
+  }
+
+  .dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+  }
+
+  .dot:nth-child(1) { top: -5px; left: 50%; }
+  .dot:nth-child(2) { bottom: -5px; right: 30%; }
+  .dot:nth-child(3) { left: -5px; top: 40%; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ───── SECTION COMMON ───── */
+  section { padding: 6rem 6%; }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 580px;
+    font-weight: 300;
+  }
+
+  /* ───── ABOUT ───── */
+  #about {
+    background: var(--surface);
+    border-top: 1px solid rgba(0,212,255,0.07);
+    border-bottom: 1px solid rgba(0,212,255,0.07);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%;
+    border-radius: 16px;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-img-placeholder {
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--surface2) 0%, rgba(0,119,182,0.2) 100%);
+    border: 1px solid rgba(0,212,255,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .about-img-placeholder .icon-big {
+    font-size: 4rem;
+    filter: grayscale(0);
+  }
+
+  .about-img-placeholder p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .about-badge-float {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--gradient);
+    color: white;
+    padding: 1.2rem 1.5rem;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,119,182,0.4);
+  }
+
+  .about-badge-float .num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    display: block;
+  }
+
+  .about-badge-float .lbl {
+    font-size: 0.75rem;
+    opacity: 0.85;
+  }
+
+  .about-points {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .about-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .about-points li::before {
+    content: '→';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ───── SERVICES ───── */
+  #services { background: var(--bg); }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid rgba(0,212,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,212,255,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.7rem;
+  }
+
+  .service-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+  }
+
+  .tag {
+    background: rgba(0,212,255,0.08);
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  /* ───── SCOPE OF WORK ───── */
+  #scope {
+    background: var(--surface);
+    border-top: 1px solid rgba(0,212,255,0.07);
+    border-bottom: 1px solid rgba(0,212,255,0.07);
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .scope-card {
+    background: var(--bg);
+    border: 1px solid rgba(0,212,255,0.1);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+
+  .scope-card h3 {
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .scope-num {
+    background: var(--gradient);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .scope-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .scope-list li {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .scope-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  /* ───── WHY US ───── */
+  #why { background: var(--bg); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .why-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--surface);
+    border-radius: 14px;
+    border: 1px solid rgba(0,212,255,0.07);
+    transition: border-color 0.2s;
+  }
+
+  .why-card:hover { border-color: rgba(0,212,255,0.2); }
+
+  .why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .why-card h3 {
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .why-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ───── INDUSTRIES ───── */
+  #industries {
+    background: var(--surface);
+    border-top: 1px solid rgba(0,212,255,0.07);
+  }
+
+  .industries-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .industry-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--bg);
+    border: 1px solid rgba(0,212,255,0.12);
+    padding: 0.75rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .industry-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .industry-pill span:first-child { font-size: 1.2rem; }
+
+  /* ───── CONTACT ───── */
+  #contact { background: var(--bg); }
+
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-item-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item-text strong {
+    display: block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-item-text span {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .contact-form {
+    background: var(--surface);
+    border: 1px solid rgba(0,212,255,0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.3rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group textarea { height: 120px; resize: vertical; }
+
+  .form-group select option { background: var(--surface); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid rgba(0,212,255,0.1);
+    padding: 3rem 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  footer p {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .shams-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(240,165,0,0.1);
+    border: 1px solid rgba(240,165,0,0.25);
+    color: var(--gold);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  /* ───── SCROLL REVEAL ───── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    .hero-visual { display: none; }
+    .about-grid, .scope-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid, .why-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Kottaram<span>Tech</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#scope">Scope</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🇦🇪 Registered · Sharjah Media City (Shams)</div>
+    <h1>Transforming Ideas into <span class="accent">Digital Reality</span></h1>
+    <p class="hero-desc">
+      Kottaram Tech Solution is a UAE-registered IT company delivering cutting-edge software development, digital transformation, and technology consulting services across the Middle East and beyond.
+    </p>
+    <div class="hero-ctas">
+      <a href="#services" class="btn-primary">Explore Our Services</a>
+      <a href="#contact" class="btn-outline">Get a Free Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Foreign Ownership</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">UAE</div>
+        <div class="stat-label">Registered Entity</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Tech Support</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="tech-circle">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="tech-circle-inner">KTS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <span class="section-tag">Who We Are</span>
+    <h2 class="section-title">Built for the Future of <br>Business Technology</h2>
+    <p class="section-sub">Kottaram Tech Solution is a proudly UAE-registered technology company under Sharjah Media City (Shams) Free Zone, dedicated to helping businesses grow through smart, reliable, and scalable IT solutions.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <div class="about-img-placeholder">
+        <span class="icon-big">🏢</span>
+        <p>Kottaram Tech Solution</p>
+        <p style="font-size:0.78rem; opacity:0.6">Sharjah Media City, UAE</p>
+      </div>
+      <div class="about-badge-float">
+        <span class="num">Shams</span>
+        <span class="lbl">Licensed Entity</span>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p style="color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:1.5rem;">
+        We are a technology-driven company that bridges the gap between business challenges and digital solutions. From startups to enterprises, we bring together expertise, innovation, and dedication to deliver technology that works — and lasts.
+      </p>
+      <p style="color:var(--muted); line-height:1.8; font-weight:300;">
+        Our team brings experience across software development, cloud infrastructure, mobile apps, cybersecurity, and digital marketing — offering a one-stop technology partnership for your business.
+      </p>
+      <ul class="about-points" style="margin-top:1.8rem;">
+        <li>Registered and licensed under Shams Free Zone, Sharjah, UAE</li>
+        <li>100% client-focused with transparent project management</li>
+        <li>End-to-end IT services — from planning to post-launch support</li>
+        <li>Serving clients across UAE, GCC, India, and internationally</li>
+        <li>Committed to data security and international quality standards</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Our Core Services</h2>
+    </div>
+    <p class="section-sub" style="max-width:340px;">Comprehensive IT solutions tailored to your business goals and industry needs.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <span class="service-icon">💻</span>
+      <h3>Custom Software Development</h3>
+      <p>We design and build bespoke software solutions — from simple web apps to complex enterprise systems — tailored exactly to your business processes and goals.</p>
+      <div class="service-tags">
+        <span class="tag">Web Apps</span>
+        <span class="tag">Enterprise Systems</span>
+        <span class="tag">APIs</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">📱</span>
+      <h3>Mobile App Development</h3>
+      <p>Native and cross-platform mobile applications for iOS and Android that deliver outstanding user experiences and drive engagement for your customers.</p>
+      <div class="service-tags">
+        <span class="tag">iOS</span>
+        <span class="tag">Android</span>
+        <span class="tag">React Native</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">☁️</span>
+      <h3>Cloud Solutions & Infrastructure</h3>
+      <p>Modern cloud architecture, migration, and managed services using AWS, Azure, and Google Cloud — ensuring scalability, reliability, and cost-efficiency.</p>
+      <div class="service-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">Azure</span>
+        <span class="tag">DevOps</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">🌐</span>
+      <h3>Website Design & Development</h3>
+      <p>Professional, responsive, and SEO-optimized websites that represent your brand powerfully and convert visitors into loyal customers.</p>
+      <div class="service-tags">
+        <span class="tag">WordPress</span>
+        <span class="tag">E-commerce</span>
+        <span class="tag">Landing Pages</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">🔒</span>
+      <h3>Cybersecurity Services</h3>
+      <p>Protect your digital assets with our comprehensive cybersecurity solutions including vulnerability assessments, penetration testing, and compliance frameworks.</p>
+      <div class="service-tags">
+        <span class="tag">Penetration Testing</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">Audits</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">📊</span>
+      <h3>IT Consulting & Strategy</h3>
+      <p>Expert technology consulting to help your business make smarter IT decisions, plan digital transformation roadmaps, and optimise existing systems.</p>
+      <div class="service-tags">
+        <span class="tag">Digital Strategy</span>
+        <span class="tag">IT Audit</span>
+        <span class="tag">Roadmap</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">🤖</span>
+      <h3>AI & Automation Solutions</h3>
+      <p>Leverage the power of artificial intelligence and process automation to eliminate repetitive tasks, gain insights from data, and unlock new business efficiencies.</p>
+      <div class="service-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Chatbots</span>
+        <span class="tag">RPA</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">📣</span>
+      <h3>Digital Marketing & SEO</h3>
+      <p>End-to-end digital marketing services — from search engine optimisation and paid advertising to social media management and content strategy.</p>
+      <div class="service-tags">
+        <span class="tag">SEO</span>
+        <span class="tag">Google Ads</span>
+        <span class="tag">Social Media</span>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <span class="service-icon">🛠️</span>
+      <h3>IT Support & Managed Services</h3>
+      <p>Reliable ongoing technical support, system maintenance, network management, and helpdesk services to keep your business running smoothly 24/7.</p>
+      <div class="service-tags">
+        <span class="tag">Helpdesk</span>
+        <span class="tag">Network Mgmt</span>
+        <span class="tag">Maintenance</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCOPE OF WORK -->
+<section id="scope">
+  <div class="reveal">
+    <span class="section-tag">Scope of Work</span>
+    <h2 class="section-title">How We Deliver Projects</h2>
+    <p class="section-sub">Our structured delivery approach ensures every project is completed on time, within budget, and to the highest standard.</p>
+  </div>
+
+  <div class="scope-grid">
+
+    <div class="scope-card reveal">
+      <h3><span class="scope-num">1</span> Discovery & Requirements</h3>
+      <ul class="scope-list">
+        <li>In-depth client consultation and needs analysis</li>
+        <li>Business process review and documentation</li>
+        <li>Technical feasibility assessment</li>
+        <li>Project goals, KPIs, and success criteria definition</li>
+        <li>Competitor and market analysis (if required)</li>
+      </ul>
+    </div>
+
+    <div class="scope-card reveal">
+      <h3><span class="scope-num">2</span> Planning & Architecture</h3>
+      <ul class="scope-list">
+        <li>Detailed project scope and timeline creation</li>
+        <li>Technology stack selection and justification</li>
+        <li>System architecture design and documentation</li>
+        <li>Resource allocation and team assignment</li>
+        <li>Risk assessment and mitigation strategy</li>
+      </ul>
+    </div>
+
+    <div class="scope-card reveal">
+      <h3><span class="scope-num">3</span> Design & Prototyping</h3>
+      <ul class="scope-list">
+        <li>UI/UX wireframes and user journey mapping</li>
+        <li>Interactive prototypes for client review</li>
+        <li>Brand alignment and visual design system</li>
+        <li>Responsive design for all devices</li>
+        <li>Client feedback and design approval</li>
+      </ul>
+    </div>
+
+    <div class="scope-card reveal">
+      <h3><span class="scope-num">4</span> Development & Integration</h3>
+      <ul class="scope-list">
+        <li>Agile sprint-based development cycles</li>
+        <li>Backend API and database development</li>
+        <li>Third-party integrations (CRM, payment, ERP)</li>
+        <li>Regular progress updates and demos</li>
+        <li>Version control and code documentation</li>
+      </ul>
+    </div>
+
+    <div class="scope-card reveal">
+      <h3><span class="scope-num">5</span> Testing & Quality Assurance</h3>
+      <ul class="scope-list">
+        <li>Functional and regression testing</li>
+        <li>Performance and load testing</li>
+        <li>Security vulnerability scanning</li>
+        <li>Cross-browser and cross-device compatibility</li>
+        <li>User Acceptance Testing (UAT) with client</li>
+      </ul>
+    </div>
+
+    <div class="scope-card reveal">
+      <h3><span class="scope-num">6</span> Launch & Post-Delivery Support</h3>
+      <ul class="scope-list">
+        <li>Production deployment and go-live support</li>
+        <li>DNS, hosting, and infrastructure setup</li>
+        <li>Staff training and handover documentation</li>
+        <li>Post-launch monitoring and bug fixes</li>
+        <li>Ongoing maintenance and support packages</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 0;">
+    <span class="section-tag">Why Choose Us</span>
+    <h2 class="section-title">The Kottaram Difference</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">🏆</span>
+      <h3>UAE Registered</h3>
+      <p>Fully licensed under Shams Free Zone, Sharjah — a credible, legally compliant UAE business entity.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">⚡</span>
+      <h3>Fast Delivery</h3>
+      <p>Agile methodology with sprint-based delivery ensures you get working results quickly and continuously.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🔐</span>
+      <h3>Secure & Compliant</h3>
+      <p>We follow international security standards and UAE data protection regulations in every project.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">🌍</span>
+      <h3>Global Reach</h3>
+      <p>Serving clients across the UAE, GCC, South Asia, and globally with remote-first capabilities.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">💬</span>
+      <h3>Transparent Communication</h3>
+      <p>Regular updates, open reporting, and a dedicated point of contact throughout every project.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">💡</span>
+      <h3>Innovation First</h3>
+      <p>We bring the latest technologies — AI, cloud, automation — to give your business a competitive edge.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">📦</span>
+      <h3>End-to-End Services</h3>
+      <p>From strategy and design to development, launch, and maintenance — we handle everything under one roof.</p>
+    </div>
+    <div class="why-card reveal">
+      <span class="why-icon">💰</span>
+      <h3>Cost Effective</h3>
+      <p>Premium quality at competitive pricing — flexible engagement models to fit every budget and business size.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="reveal">
+    <span class="section-tag">Industries We Serve</span>
+    <h2 class="section-title">Sector Experience</h2>
+    <p class="section-sub">We bring specialised knowledge across key industries, ensuring solutions that truly fit your sector's unique demands.</p>
+  </div>
+
+  <div class="industries-wrap reveal">
+    <div class="industry-pill"><span>🏬</span><span>Retail & E-commerce</span></div>
+    <div class="industry-pill"><span>🏥</span><span>Healthcare & Medtech</span></div>
+    <div class="industry-pill"><span>🏦</span><span>Finance & FinTech</span></div>
+    <div class="industry-pill"><span>🎓</span><span>Education & EdTech</span></div>
+    <div class="industry-pill"><span>🏗️</span><span>Real Estate & Construction</span></div>
+    <div class="industry-pill"><span>🚚</span><span>Logistics & Supply Chain</span></div>
+    <div class="industry-pill"><span>🍽️</span><span>Hospitality & F&B</span></div>
+    <div class="industry-pill"><span>🏭</span><span>Manufacturing</span></div>
+    <div class="industry-pill"><span>📡</span><span>Telecom & Media</span></div>
+    <div class="industry-pill"><span>⚖️</span><span>Legal & Compliance</span></div>
+    <div class="industry-pill"><span>🌿</span><span>Energy & Sustainability</span></div>
+    <div class="industry-pill"><span>🛒</span><span>SMEs & Startups</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title">Let's Start Your Project</h2>
+    <p class="section-sub">Ready to transform your business with technology? Reach out to us — our team will respond within 24 hours.</p>
+  </div>
+
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div class="contact-item-text">
+          <strong>Office Address</strong>
+          <span>Sharjah Media City (Shams)<br>Sharjah, United Arab Emirates</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📧</div>
+        <div class="contact-item-text">
+          <strong>Email Us</strong>
+          <span>info@kottaramtech.com</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div class="contact-item-text">
+          <strong>Call Us</strong>
+          <span>+971 XX XXX XXXX</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div class="contact-item-text">
+          <strong>Working Hours</strong>
+          <span>Monday – Friday: 9:00 AM – 6:00 PM GST<br>Saturday: 10:00 AM – 2:00 PM GST</span>
+        </div>
+      </div>
+      <div>
+        <div class="shams-badge">🏛️ Licensed under Shams Free Zone — Sharjah, UAE</div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3 style="font-family:'Syne',sans-serif; color:var(--white); margin-bottom:1.5rem; font-size:1.1rem;">Send Us a Message</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label>Company Name</label>
+          <input type="text" placeholder="Your Company">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+971 XX XXX XXXX">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Service Required</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Custom Software Development</option>
+          <option>Mobile App Development</option>
+          <option>Cloud Solutions</option>
+          <option>Website Design & Development</option>
+          <option>Cybersecurity Services</option>
+          <option>IT Consulting & Strategy</option>
+          <option>AI & Automation</option>
+          <option>Digital Marketing & SEO</option>
+          <option>IT Support & Managed Services</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Project Details</label>
+        <textarea placeholder="Tell us about your project, requirements, timeline, and budget..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%; justify-content:center;">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Kottaram<span>Tech</span> Solution</div>
+    <p style="margin-top:0.4rem;">Registered under Shams Free Zone · Sharjah, UAE</p>
+  </div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#scope">Scope of Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p>© 2025 Kottaram Tech Solution LLC. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
